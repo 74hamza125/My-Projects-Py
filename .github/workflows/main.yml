@@ -1,18 +1,23 @@
 name: Run Python Script Every 5 Minutes
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/5 * * * *"  # تشغيل كل 5 دقائق
+  workflow_dispatch:  # السماح بتشغيله يدويًا
+
 jobs:
   run-script:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v2
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
+
       - name: Install Dependencies
         run: pip install requests beautifulsoup4
+
       - name: Run Script
         run: python projects.py
