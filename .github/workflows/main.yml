@@ -1,8 +1,7 @@
-name: Run Python Script Every Minute
+name: Run Python Script Continuously
+
 on:
-  schedule:
-    - cron: "*/1 * * * *"  # تشغيل كل دقيقة
-  workflow_dispatch:
+  workflow_dispatch:  # لتشغيله يدويًا عند الحاجة
 
 jobs:
   run-script:
@@ -19,5 +18,10 @@ jobs:
       - name: Install Dependencies
         run: pip install requests beautifulsoup4
 
-      - name: Run Script
-        run: python projects.py
+      - name: Run Script Continuously
+        run: |
+          while true; do
+            python projects.py
+            echo "⏳ الانتظار 60 ثانية قبل البحث مرة أخرى..."
+            sleep 60
+          done
