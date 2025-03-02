@@ -18,7 +18,7 @@ jobs:
 
       - name: Install Dependencies
         run: |
-          pip install requests beautifulsoup4 selenium webdriver-manager
+          pip install requests beautifulsoup4
 
       - name: Run Script
         run: python projects.py
