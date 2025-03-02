@@ -1,7 +1,7 @@
 name: Run Python Script Every 5 Minutes
 on:
   schedule:
-    - cron: "*/5 * * * *"  # تشغيل كل 5 دقائق
+    - cron: "*/1 * * * *"  # تشغيل كل 5 دقائق
   workflow_dispatch:  # للسماح بتشغيله يدويًا
 
 jobs:
